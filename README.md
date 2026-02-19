@@ -1,21 +1,60 @@
-# Real Estate Management System
+⚙️ Instalación y Configuración
 
-## Arquitectura
-Se utilizó una arquitectura desacoplada:
-- **Backend**: Patrón Service-Controller para separar la lógica de negocio del manejo de peticiones.
-- **Frontend**: Context API para estado global y Axios Interceptors para seguridad.
+Pre-requisitos
 
-## Instalación
-1. **Base de Datos**: Crear DB `real_estate_management` en PostgreSQL.
-2. **Backend**:
-   - `cd backend`
-   - `npm install`
-   - Configurar `.env`
-   - `npm run dev`
-3. **Frontend**:
-   - `cd frontend`
-   - `npm install`
-   - `npm run dev`
+Node.js (v18 o superior)
+PostgreSQL (instancia local o remota)
 
-## Credenciales de prueba
-- **User**: admin@test.com / **Pass**: admin123 (requiere registro previo)
+1. Clonar el repositorio
+
+Bash
+git clone https://github.com/EdinsonG/user-management-and-sales.git
+cd user-management-and-sales
+
+2. Configurar el Backend
+
+Bash
+cd backend
+npm install
+
+Crea un archivo .env en la carpeta backend siguiendo este esquema:
+
+Fragmento de códigoPORT=4000
+DB_NAME=tu_base_de_datos
+DB_USER=tu_usuario
+DB_PASS=tu_password
+DB_HOST=localhost
+JWT_SECRET=tu_secreto_super_seguro
+
+Inicia el servidor:
+
+Bash
+npm run dev
+
+3. Configurar el Frontend
+
+Bash
+cd ../frontend
+
+npm install
+
+Inicia la aplicación:
+
+Bash
+npm run dev
+
+Estructura del Proyecto
+Plaintext
+
+├── backend/
+│   ├── src/
+│   │   ├── controllers/  # Lógica de negocio
+│   │   ├── models/       # Modelos de Sequelize
+│   │   ├── routes/       # Definición de Endpoints
+│   │   └── middleware/   # Auth y validaciones
+├── frontend/
+│   ├── src/
+│   │   ├── components/   # UI Reutilizable
+│   │   ├── hooks/        # Lógica de React personalizada
+│   │   ├── services/     # Llamadas a la API (Axios)
+│   │   └── pages/        # Vistas principales
